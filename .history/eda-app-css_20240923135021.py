@@ -48,7 +48,7 @@ st.markdown(
 
     /* 自定义滑块，添加小花背景 */
     .stSlider > div > div {
-        background: url('https://www.publicdomainpictures.net/pictures/370000/velka/blume-blute-vintage-kunst-1598098921dOu.png') !important;
+        background: url('https://www.publicdomainpictures.net/pictures/320000/nahled/flower-background.jpg') !important;
         border-radius: 10px !important;
     }
     </style>

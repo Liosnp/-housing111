@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import pydeck as pdk
-import seaborn as sns
 
 # 加载数据，使用st.cache_data缓存
 @st.cache_data
@@ -29,7 +28,10 @@ st.markdown(
         font-size: 3em !important;
     }
 
-    
+    /* 恢复 sidebar 并添加渐变背景 */
+    .css-1d391kg { 
+        background: linear-gradient(135deg, #f3ec78, #af4261);
+    }
 
     /* 自定义按钮 */
     .stButton>button {
@@ -48,7 +50,7 @@ st.markdown(
 
     /* 自定义滑块，添加小花背景 */
     .stSlider > div > div {
-        background: url('https://www.publicdomainpictures.net/pictures/370000/velka/blume-blute-vintage-kunst-1598098921dOu.png') !important;
+        background: url('https://www.publicdomainpictures.net/pictures/320000/nahled/flower-background.jpg') !important;
         border-radius: 10px !important;
     }
     </style>
@@ -113,7 +115,7 @@ st.pydeck_chart(pdk.Deck(
 
 # 绘制房价直方图
 st.subheader("House Price Distribution")
-sns.set()
+s
 plt.figure(figsize=(8, 6))
 plt.hist(data['median_house_value'], bins=30, range=(200000, 500001),edgecolor='steelblue')
 # median_house_value=500001有900多个样本
