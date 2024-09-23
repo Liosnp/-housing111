@@ -1,0 +1,7 @@
+streamlit
+matplotlib
+WordCloud
+seaborn
+pydeck
+pandas
+numpy
