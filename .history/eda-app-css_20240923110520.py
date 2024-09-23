@@ -169,7 +169,7 @@ def load_data():
 
 data = load_data()
 
-# 应用的CSS样式，但是streamlit好像有保护机制不支持大量页面的改变
+# 应用的CSS样式，但是streamlit
 st.markdown(
     """
     <style>
@@ -221,10 +221,10 @@ st.title("Housing Data App by YANLIN LIU")
 # 侧边栏：多选框选择位置类型和收入水平过滤
 st.sidebar.header("Filter Options")
 location_types = data['ocean_proximity'].unique()
-location_filter = st.sidebar.multiselect("Choose Location Type", options=location_types, default=location_types)
+location_filter = st.sidebar.multiselect("Filter by Location Type", options=location_types, default=location_types)
 
 income_filter = st.sidebar.radio(
-    "Choose Income Level",
+    "Filter by Income Level",
     ("Low", "Medium", "High"),
     index=1
 )
@@ -242,14 +242,14 @@ data = data[data["ocean_proximity"].isin(location_filter)]
 
 # 主体内容：房价滑块
 price_slider = st.slider(
-    "Minimal Median House Price",
+    "Select Median House Price Range",
     int(data["median_house_value"].min()),
     int(data["median_house_value"].max()),
     (int(data["median_house_value"].min()), int(data["median_house_value"].max()))
 )
 
 # 使用PyDeck显示房价的点图
-st.subheader("See more filters in the sidebar")
+st.subheader("Housing Data Map")
 st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state=pdk.ViewState(
@@ -272,8 +272,8 @@ st.pydeck_chart(pdk.Deck(
 
 # 绘制房价直方图
 st.subheader("House Price Distribution")
-plt.figure(figsize=(8, 6))
-plt.hist(data["median_house_value"], bins=30,  range=(200000, 500000), color='royalblue', edgecolor='black')
+plt.figure(figsize=(10, 6))
+plt.hist(data["median_house_value"], bins=30, color='skyblue', edgecolor='black')
 plt.xlabel("Median House Value")
 plt.ylabel("Frequency")
 st.pyplot(plt)

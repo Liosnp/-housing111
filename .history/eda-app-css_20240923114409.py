@@ -224,7 +224,7 @@ location_types = data['ocean_proximity'].unique()
 location_filter = st.sidebar.multiselect("Choose Location Type", options=location_types, default=location_types)
 
 income_filter = st.sidebar.radio(
-    "Choose Income Level",
+    "Filter by Income Level",
     ("Low", "Medium", "High"),
     index=1
 )

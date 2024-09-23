@@ -221,10 +221,10 @@ st.title("Housing Data App by YANLIN LIU")
 # 侧边栏：多选框选择位置类型和收入水平过滤
 st.sidebar.header("Filter Options")
 location_types = data['ocean_proximity'].unique()
-location_filter = st.sidebar.multiselect("Choose Location Type", options=location_types, default=location_types)
+location_filter = st.sidebar.multiselect("Filter by Location Type", options=location_types, default=location_types)
 
 income_filter = st.sidebar.radio(
-    "Choose Income Level",
+    "Filter by Income Level",
     ("Low", "Medium", "High"),
     index=1
 )
